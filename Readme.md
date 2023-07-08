@@ -2,7 +2,7 @@
 
 #### Project Goal
 
-To build an express server with TS
+To build an Express server with TS
 
 #### Steps To Run
 
@@ -28,28 +28,29 @@ npm run start
 
 ### V1
 
-Express setup with login route
+- Express setup with a login route.
 
 ### V2
 
-Approach 1
-Mostly this approach will be used that we use JS libraries with help fo Type Defenition Files
+**Approach 1**
 
-Implemented Login / Logout and protected routes.
-When using JS libraries with TS, one mainly relies on Type Definitions file. If there is any issue with TD files that can lead to unnecessary errors or issues.
-Eg - express TD file outputs req.body as Type 'any' which results in no type warnings or errors in TS project.
-One option is we can twist libraries a bit or extend on top of them ( 99% we will be using this. ).
-Eg
+- Mostly, this approach will be used where we utilize JavaScript libraries with the help of Type Definition Files.
+- Implemented login/logout functionality and protected routes.
+- When using JavaScript libraries with TypeScript, we primarily rely on Type Definition files. However, issues with Type Definition files can result in unnecessary errors or issues.
+- For example, the Express Type Definition file may output `req.body` as type `'any'`, which leads to no type warnings or errors in the TypeScript project.
+- One option is to extend or modify the libraries to address these issues. We will be using this approach in most cases.
+- For example:
 
-```
+```typescript
 interface CustomRequest extends Request {
-body : {[key: string] : string | undefined }
+  body: { [key: string]: string | undefined }
 }
 ```
 
 ### V3
 
-Approach 2
-Twist the library completely with the help of Decorators
-This approach is time taking and is quite advance. Mostly this approach should be taken when by twisting the libraries we r able to achieve extended functionalities which justify the time spent.
-In this project we used decorators to define routes, middlewares and validators
+**Approach 2**
+
+- Completely twist the library with the help of decorators.
+- This approach is more time-consuming and advanced. It should be chosen when twisting the libraries allows us to achieve extended functionalities that justify the time spent.
+- In this project, decorators were used to define routes, middlewares, and validators.
